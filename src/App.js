@@ -8,13 +8,18 @@ import SwipeButtons from "./SwipeButtons";
 function App() {
   return (
     <div className="App">
-      <Header />
-
       <Router>
+        {/* <Header /> */}
         <Routes>
-          {/* <Route path="/chat" element={<h1>Chat Page</h1>} /> */}
+          <Route
+            path="/chat"
+            element={[<Header backButton="/" />, <h1>Chat Page</h1>]}
+          />
           {/* <Route path="/" element={((<TinderCards />), (<SwipeButtons />))} /> */}
-          <Route path="/" element={[<TinderCards />, <SwipeButtons />]} />
+          <Route
+            path="/"
+            element={[<Header />, <TinderCards />, <SwipeButtons />]}
+          />
         </Routes>
       </Router>
 

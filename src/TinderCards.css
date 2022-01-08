@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .card {
   position: relative;
-  width: 500px;
+  width: 85vw !important;
+  /* width: 80%; */
   padding: 20px;
   max-width: 85vh;
   height: 50vh;
@@ -14,6 +17,7 @@
   position: absolute;
   bottom: 10px;
   color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .tinderCards__cardContainer {
