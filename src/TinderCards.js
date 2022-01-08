@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
+import database from "./firebase";
 
 function TinderCards() {
   // Normal Way: same as people = []
   // people.push('abc', 'def') is same as
   // setPeople([...people, 'abc', 'def'])
 
-  const [people, setPeople] = useState([
-    {
-      name: "Andrew Garfield",
-      url: "https://assets-prd.ignimgs.com/2021/12/28/amazing-spiderman-3-andrew-garfield-1640735299847.jpg",
-    },
-    {
-      name: "Tom Holland",
-      url: "https://www.cheatsheet.com/wp-content/uploads/2021/11/Tom-Holland-5-1200x800.jpg",
-    },
-  ]);
+  const [people, setPeople] = useState([]);
+
+  //   Runs based on Condiition
+  useEffect(() => {
+    const unsubscribe = database
+      .collection("people")
+      .onSnapshot((snapshot) =>
+        setPeople(snapshot.docs.map((doc) => doc.data()))
+      );
+
+    return () => {
+      //   cleanup
+      unsubscribe();
+    };
+  }, []);
 
   return (
     <div className="tindercards">
