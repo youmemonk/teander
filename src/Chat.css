@@ -22,3 +22,8 @@
 .chat__image {
   margin-right: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

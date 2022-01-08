@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TinderCards from "./TinderCards";
 import SwipeButtons from "./SwipeButtons";
 import Chats from "./Chats";
+import ChatScreen from "./ChatScreen";
 
 function App() {
   return (
@@ -12,6 +13,11 @@ function App() {
       <Router>
         {/* <Header /> */}
         <Routes>
+          <Route
+            path="/chat/:person"
+            // : goes to anything
+            element={[<Header backButton="/chat" />, <ChatScreen />]}
+          />
           <Route
             path="/chat"
             element={[<Header backButton="/" />, <Chats />]}
